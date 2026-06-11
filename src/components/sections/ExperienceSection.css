@@ -1,0 +1,90 @@
+.experience-section__timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.experience-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.experience-card__marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.35rem;
+  flex-shrink: 0;
+}
+
+.experience-card__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 12px rgba(107, 159, 255, 0.4);
+}
+
+.experience-card__line {
+  width: 1px;
+  flex: 1;
+  min-height: 20px;
+  background: linear-gradient(180deg, var(--color-accent), transparent);
+  opacity: 0.3;
+  margin-top: 0.5rem;
+}
+
+.experience-card__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.experience-card__meta {
+  margin-bottom: 0.35rem;
+}
+
+.experience-card__date {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.experience-card__role {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.experience-card__org {
+  font-size: 0.8rem;
+  color: var(--color-text-dim);
+  margin-bottom: 0.75rem;
+}
+
+.experience-card__bullets {
+  list-style: none;
+}
+
+.experience-card__bullets li {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  padding-left: 0.85rem;
+  position: relative;
+  margin-bottom: 0.35rem;
+}
+
+.experience-card__bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--color-text-dim);
+}

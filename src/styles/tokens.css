@@ -1,0 +1,31 @@
+:root {
+  --color-bg-deep: #050508;
+  --color-bg-mid: #0a0a12;
+  --color-bg-elevated: #12121c;
+
+  --color-text-primary: #f5f5fa;
+  --color-text-muted: #b0b0c4;
+  --color-text-dim: #7878a0;
+
+  --color-accent: #6b9fff;
+  --color-accent-glow: #a8c8ff;
+  --color-accent-soft: rgba(107, 159, 255, 0.15);
+
+  --glass-bg: rgba(6, 6, 12, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-highlight: rgba(255, 255, 255, 0.05);
+
+  --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 40px rgba(107, 159, 255, 0.12);
+
+  --blur-glass: 24px;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+
+  --font-display: 'Syne', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --scroll-height: 320vh;
+  --nav-height: 72px;
+}

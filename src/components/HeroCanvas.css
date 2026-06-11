@@ -1,0 +1,14 @@
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 30px rgba(168, 200, 255, 0.08));
+  /* opacity is scroll-driven inline; short linear transition smooths ticks */
+  transition: opacity 0.15s linear, filter 0.6s ease;
+}
+
+.hero-canvas--glow {
+  filter: drop-shadow(0 0 50px rgba(168, 200, 255, 0.16))
+    drop-shadow(0 0 80px rgba(107, 159, 255, 0.08));
+}

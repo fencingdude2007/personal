@@ -1,0 +1,37 @@
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-deep);
+  transition: opacity 0.5s ease;
+}
+
+.loading-overlay__content {
+  text-align: center;
+  width: min(280px, 80vw);
+}
+
+.loading-overlay__bar {
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.loading-overlay__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-glow));
+  border-radius: 2px;
+  transition: width 0.2s ease;
+}
+
+.loading-overlay__text {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+}

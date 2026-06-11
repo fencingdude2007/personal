@@ -1,0 +1,191 @@
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg-deep);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Glass card utility */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-glass)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--blur-glass)) saturate(160%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft), inset 0 1px 0 var(--glass-highlight);
+  border-radius: var(--radius-lg);
+}
+
+.glass:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: var(--shadow-soft), var(--shadow-glow), inset 0 1px 0 var(--glass-highlight);
+}
+
+/* Film grain overlay */
+.grain-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Persistent fixed fencer layer (behind all content) */
+.fencer-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, var(--color-bg-deep) 0%, var(--color-bg-mid) 55%, var(--color-bg-deep) 100%);
+}
+
+/* Phase 1: pinned intro journey (transparent so the fixed fencer shows through) */
+.scroll-journey {
+  position: relative;
+  height: var(--scroll-height);
+  z-index: 2;
+}
+
+.pinned-stage {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Phase 2: normal-flow content */
+.content-main {
+  position: relative;
+  z-index: 1;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 7rem clamp(1.5rem, 5vw, 4rem) 8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 9rem;
+}
+
+.content-section {
+  opacity: 0;
+  transform: translateY(40px);
+  filter: blur(6px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.8s ease;
+}
+
+.content-section--revealed {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.section-label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent-glow);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--color-accent-glow);
+  background: var(--color-accent-soft);
+  border: 1px solid rgba(107, 159, 255, 0.2);
+  border-radius: 100px;
+}
+
+.skill-pill {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 100px;
+}
+
+.reduced-layout {
+  padding: 2rem clamp(1.5rem, 5vw, 4rem);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.reduced-layout .section-block {
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+  .content-main {
+    padding: 4rem 1.25rem 5rem;
+    gap: 6rem;
+  }
+}

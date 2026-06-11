@@ -1,0 +1,71 @@
+.parallax-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.parallax-bg__deep {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding-right: 8%;
+  will-change: transform;
+}
+
+.parallax-bg__name {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 12vw, 10rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.025);
+  line-height: 0.9;
+  user-select: none;
+}
+
+.parallax-bg__grid {
+  position: absolute;
+  inset: -50%;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);
+  will-change: transform;
+}
+
+.parallax-bg__particles {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.parallax-bg__particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--color-accent-glow);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@media (max-width: 768px) {
+  .parallax-bg__name {
+    font-size: clamp(3rem, 18vw, 6rem);
+    padding-right: 0;
+    align-self: center;
+  }
+}
