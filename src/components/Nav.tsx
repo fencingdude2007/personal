@@ -1,4 +1,4 @@
-import { sections, type SectionId } from '../data/resume';
+import { resumeUrl, sections, type SectionId } from '../data/resume';
 import './Nav.css';
 
 interface NavProps {
@@ -28,13 +28,24 @@ export function Nav({ activeSection, onNavigate }: NavProps) {
         ))}
       </ul>
 
-      <div className="nav__progress">
-        {sections.map((section) => (
-          <span
-            key={section.id}
-            className={`nav__dot ${activeSection === section.id ? 'nav__dot--active' : ''}`}
-          />
-        ))}
+      <div className="nav__right">
+        <a
+          href={resumeUrl}
+          download
+          className="nav__resume"
+          aria-label="Download resume (PDF)"
+        >
+          Resume
+        </a>
+
+        <div className="nav__progress">
+          {sections.map((section) => (
+            <span
+              key={section.id}
+              className={`nav__dot ${activeSection === section.id ? 'nav__dot--active' : ''}`}
+            />
+          ))}
+        </div>
       </div>
     </nav>
   );

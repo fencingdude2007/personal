@@ -5,6 +5,8 @@ export function getFramePath(index: number): string {
   return `/frames/ezgif-frame-${String(num).padStart(3, '0')}.jpg`;
 }
 
+export const resumeUrl = '/Aidan_Lee_Resume.pdf';
+
 export const contact = {
   name: 'Aidan Lee',
   email: 'aidan.lee@duke.edu',
@@ -19,60 +21,65 @@ export const tagline =
 
 export const projects = [
   {
+    id: 'myweb-ai',
+    name: 'MyWeb AI',
+    date: 'Jul 2026',
+    tags: [
+      'FastAPI',
+      'PostgreSQL/pgvector',
+      'React/TypeScript',
+      'Chrome Extension (MV3)',
+      'Claude API',
+    ],
+    bullets: [
+      'Engineered a hybrid search engine fusing BM25, 384-dim semantic vector similarity (pgvector + sentence-transformers), and trigram fuzzy matching into one weighted ranker over a 12-table PostgreSQL schema.',
+      'Built a Manifest V3 Chrome extension and async FastAPI backend (31 REST endpoints) ingesting 5+ content types — web pages, PDFs, YouTube transcripts, Google Docs/Sheets/Slides — with AI summaries, embeddings, and JWT + Google OAuth.',
+    ],
+  },
+  {
+    id: 'fencerhub',
+    name: 'FencerHub',
+    date: 'Jun 2026 – Jul 2026',
+    tags: ['Next.js', 'TypeScript', 'Prisma/PostgreSQL', 'Cloudflare Stream'],
+    bullets: [
+      'Architected a full-stack fencing training platform (Next.js, TypeScript, Prisma/PostgreSQL) serving 3 roles — fencers, coaches, parents — over a 20+-table database with per-user access controls.',
+      'Developed a private-video system on Cloudflare Stream that delivers bout footage via signed access tokens, letting coaches pin timestamped feedback to specific moments.',
+    ],
+  },
+  {
     id: 'datacrawl',
     name: 'DataCrawl',
     date: 'Mar 2026',
     tags: ['Gemini', 'LangGraph', 'FastAPI', 'Firebase'],
-    award: 'Best Use of Solana @ HackDuke',
+    award: 'HackDuke 2026 Award',
     bullets: [
-      'Built an AI-powered financial data pipeline converting natural language requests into structured datasets via APIs, web scraping, and gated sources.',
-      'Designed a multi-agent system (Gemini + LangGraph) with specialized agents for compliance, cost estimation, normalization, and schema validation.',
+      'Engineered an AI-powered financial data pipeline converting natural-language requests into structured datasets from web sources via APIs, web scraping, and gated feeds.',
+      'Designed a 5+-subagent LangGraph system (Gemini) for compliance, cost estimation, normalization, and schema validation; won HackDuke 2026 award.',
     ],
   },
   {
     id: 'fencing-viz',
     name: 'Fencing Visualizer',
     date: 'Aug 2024 – May 2025',
-    tags: ['OpenCV', 'YOLOv11', 'React', 'Vite', 'FastAPI'],
+    tags: ['OpenCV', 'YOLOv11', 'React', 'FastAPI'],
     bullets: [
-      'Built a computer vision system tracking fencing blades with OpenCV and a custom-trained YOLOv11 model.',
-      'Served via a React/Vite/FastAPI web app that overlays motion trails on uploaded videos in real time.',
-    ],
-  },
-  {
-    id: 'fred',
-    name: 'F.R.E.D Fencing Robot',
-    date: 'Jun 2022 – Aug 2022',
-    tags: ['Arduino', '3D Printing', 'Robotics'],
-    bullets: [
-      'Co-created a fencing robot to enable remote training during the COVID-19 pandemic.',
-      'Integrated 3D-printed components, motors, and Arduino-based controllers.',
+      'Achieved 98.5% mAP and 95% multi-blade association accuracy by training a custom YOLOv11 model (transfer learning via Roboflow) on thousands of hand-annotated frames across 3 classes (blade, tip, guard).',
+      'Built a markerless CV pipeline overlaying motion trails on uploaded footage — no tracking hardware needed — processing 30s clips in under 3 min via a React/FastAPI app on AWS EC2.',
     ],
   },
 ];
 
 export const experience = [
   {
-    id: 'duke-data',
-    role: 'Duke Data+ Intern',
-    org: 'Badea Lab, Duke University',
+    id: 'qial',
+    role: 'Software Engineering Research Assistant',
+    org: 'QIAL Lab, Duke University',
     location: 'Durham, NC',
     date: 'May 2026 – Jul 2026',
     bullets: [
-      'Investigating whether GLP-1 treatment promotes a coordinated brain–heart resilience phenotype in APOE2/3/4 mice by integrating cardiac MRI, structural brain MRI, diffusion/connectome, behavioral, and body-mass data.',
-      'Modeling brain-age and cardiac-age gaps on a 95-mouse discovery cohort using regularized regression, PLS, and sparse CCA.',
-      'Applying learned signatures to a 30-mouse GLP-1 treatment cohort to test whether GLP-1 shifts animals toward healthier brain–heart aging profiles.',
-    ],
-  },
-  {
-    id: 'ta',
-    role: 'Teaching Assistant',
-    org: 'Math Enrichment Services',
-    location: 'McLean, VA',
-    date: 'Jul 2024',
-    bullets: [
-      'Designed quizzes and practice problems tailored to competitive middle school math curricula (AMC 8, MATHCOUNTS).',
-      'Led individualized and group review sessions on advanced problem-solving techniques.',
+      'Engineered an automated Python pipeline (ANTs/SimpleITK) that registered and propagated a 332-region atlas across 27 brain MRIs, replacing manual per-region labeling.',
+      'Built a data-processing pipeline (pandas/NumPy) merging multimodal MRI, metadata, and behavioral tables into a unified analysis-ready dataset of 400+ features per mouse.',
+      'Automated an end-to-end pipeline over 162 mice and 14 metrics, replacing manual analysis with parameterized, reproducible scripts that generate figures, tables, and reports.',
     ],
   },
   {
@@ -82,8 +89,19 @@ export const experience = [
     location: 'Atlanta, GA',
     date: 'Jun 2023 – Sep 2023',
     bullets: [
-      'Evaluated ML models (ARIMA, Prophet, TipRanks) for stock forecasting under Dr. Karan Uppal.',
-      'Published at the 8th International Conference on Research in Business, Management and Economics, Prague, Czech Republic.',
+      'Improved stock-price forecasting accuracy by 30% over a Facebook Prophet baseline (RMSE 27.4 vs. 39.3) across 11 equities by implementing and tuning ARIMA models.',
+      'Published as first author at the 8th Intl. Conference on Research in Business, Management and Economics (Prague), advised by Dr. Karan Uppal.',
+    ],
+  },
+  {
+    id: 'ta',
+    role: 'Teaching Assistant',
+    org: 'Math Enrichment Services',
+    location: 'McLean, VA',
+    date: 'Jul 2024',
+    bullets: [
+      'Designed and taught a two-week competitive-math curriculum (AMC 8, MATHCOUNTS) to 30 students, delivering daily problem-solving lectures with quizzes and practice sets.',
+      'Administered end-of-week assessments and group review sessions targeting weak areas; top scorers improved by around 3 points over the two weeks.',
     ],
   },
 ];
@@ -94,32 +112,32 @@ export const education = [
     school: 'Duke University',
     location: 'Durham, NC',
     degree: 'B.S. in Mathematics and Computer Science',
-    date: 'Expected Jun 2029',
+    date: 'Expected May 2028',
   },
   {
     id: 'tj',
     school: 'Thomas Jefferson High School for Science and Technology',
     location: 'Alexandria, VA',
-    degree: 'Advanced Studies Diploma — Weighted GPA: 4.3/4.0, ACT: 35/36',
-    date: 'Graduated Jun 2025',
+    degree: 'Advanced Studies Diploma — Weighted GPA: 4.3/4.0',
+    date: 'Graduated May 2025',
   },
 ];
 
 export const activities = [
+  'NCAA Division I Varsity Fencing — Duke University (Foil, 2026 ACC Team Men’s Fencing Champion)',
   'Duke Asian Athletes Network (Chief Technology Officer)',
-  'Duke Varsity Fencing (Member)',
 ];
 
 export const awards = [
-  'USA Computing Olympiad Gold Division (Dec 2023)',
+  'USA Computing Olympiad Gold Division — Python (Dec 2023)',
   '3× American Invitational Mathematics Examination Qualifier (2022–2024)',
 ];
 
 export const skills = {
-  languages: ['Python', 'Java', 'JavaScript', 'HTML/CSS', 'SQL'],
-  frameworks: ['React', 'Vite', 'FastAPI', 'LangGraph', 'Flask'],
-  tools: ['Git', 'Docker', 'Firebase', 'Arduino', 'VS Code'],
-  ml: ['OpenCV', 'YOLOv11', 'Gemini', 'pandas', 'NumPy', 'Matplotlib'],
+  languages: ['Python', 'C++', 'Java', 'JavaScript', 'SQL', 'HTML/CSS'],
+  frameworks: ['React', 'Vite', 'FastAPI', 'Flask', 'LangGraph', 'PyTorch'],
+  ml: ['OpenCV', 'Scikit-learn', 'pandas', 'NumPy', 'Matplotlib'],
+  tools: ['Git', 'Docker', 'AWS (EC2)', 'Firebase', 'Arduino', 'VS Code'],
 };
 
 export const sections = [
